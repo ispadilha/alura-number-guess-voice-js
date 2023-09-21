@@ -11,6 +11,7 @@ recognition.addEventListener('result', onSpeak)
 function onSpeak(e){
     chute = e.results[0][0].transcript
     exibeChuteNaTela(chute)
+    verificaSeOChutePossuiUmValorValido(chute)
 }
 
 function exibeChuteNaTela(params){
@@ -19,3 +20,5 @@ function exibeChuteNaTela(params){
         <span class="box">${chute}</span>
     `
 }
+
+recognition.addEventListener('end', () => recognition.start())
